@@ -19,7 +19,8 @@ import csv
 #def ols_fit (x, y, transformations : List [ callable ]) : −> List[float ])
 
 data = pd.read_csv('/home/fedor/Desktop/data.csv')
-#print(df)
+
+print(data)
 # Define the function f(x)
 
 #data = pd.DataFrame({'x':x_1, 'y':y_1})
@@ -31,7 +32,7 @@ def f(x, a, b, c):
 # Extract the x and y values from the data
 x = data['x']
 y = data['y']
-
+print(type(x))
 # Perform curve fitting using the defined function
 popt, _ = curve_fit(f, x, y)
 
@@ -42,7 +43,7 @@ a, b, c = popt
 plt.plot(x, y, 'ro', label='Data')
 
 # Generate x values for the estimated plot
-x_estimated = np.linspace(-10, 10, 100)
+x_estimated = np.linspace(-11, 11, 100)
 
 # Plot the estimated function
 plt.plot(x_estimated, f(x_estimated, a, b, c), 'b-', label='Estimate')
